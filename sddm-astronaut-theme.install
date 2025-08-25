@@ -1,0 +1,16 @@
+# -*- sh -*-
+post_install() {
+  cat <<EOF >/etc/sddm.conf
+[Theme]
+Current=${pkgname}
+EOF
+
+  install -dm755 /etc/sddm/sddm.conf.d
+  cat <<EOF >/etc/sddm/sddm.conf.d/virtualkbd.conf
+[General]
+InputMethod=qtvirtualkeyboard
+EOF
+
+  echo "SDDM Astronaut Theme installed.
+To preview: sddm-greeter-qt6 --test-mode --theme /usr/share/sddm/themes/sddm-astronaut-theme"
+}
