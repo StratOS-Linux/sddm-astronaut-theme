@@ -10,7 +10,8 @@ EOF
 [General]
 InputMethod=qtvirtualkeyboard
 EOF
-
+  fc-cache -f
+  sudo fc-cache -f
   echo "SDDM Astronaut Theme installed.
 To preview: sddm-greeter-qt6 --test-mode --theme /usr/share/sddm/themes/sddm-astronaut-theme"
 }

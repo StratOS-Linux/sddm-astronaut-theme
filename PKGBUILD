@@ -27,15 +27,12 @@ prepare() {
 }
 
 package() {
-  # cd "${srcdir}/" #"${pkgname}"
   install -dm755 $pkgdir/usr/share/sddm/themes/${pkgname}
   cp -ra $srcdir/usr/share/sddm/themes/${pkgname} $pkgdir/usr/share/sddm/themes/
 
   # Install fonts
-  if [[ -d "Fonts" ]]; then
-    install -dm755 $pkgdir/usr/share/fonts/
-    cp -a $srcdir/usr/share/sddm/themes/${pkgname}/Fonts/* $pkgdir/usr/share/fonts/
-  fi
+  install -dm755 $pkgdir/usr/share/fonts/
+  cp -a "$srcdir/usr/share/sddm/themes/${pkgname}/Fonts/"* $pkgdir/usr/share/fonts/
 
   # Install metadata.desktop if exists or generate
   install -Dm644 $srcdir/usr/share/sddm/themes/${pkgname}/metadata.desktop $pkgdir/usr/share/sddm/themes/${pkgname}/metadata.desktop
