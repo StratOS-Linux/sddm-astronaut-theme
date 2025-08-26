@@ -2,7 +2,7 @@
 post_install() {
     cat <<EOF >/etc/sddm.conf
 [Theme]
-Current=${pkgname}
+Current=sddm-astronaut-theme
 EOF
 
     install -dm755 /etc/sddm/sddm.conf.d
