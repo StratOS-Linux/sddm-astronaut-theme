@@ -7,7 +7,7 @@ arch=('any')
 url="https://github.com/keyitdev/sddm-astronaut-theme"
 license=('GPL')
 depends=('sddm>=0.21.0' 'qt6-5compat' 'qt6-declarative' 'qt6-svg' 'qt6-virtualkeyboard' 'qt6-multimedia-ffmpeg'
-	# 'stratos-fonts'
+  # 'stratos-fonts'
 )
 makedepends=('git')
 provides=('sddm-astronaut-theme' 'stratos-sddm')
@@ -23,7 +23,7 @@ pkgver() {
 }
 
 prepare() {
-    cp -r $startdir/usr/ $srcdir/usr/
+  cp -r $startdir/usr/ $srcdir/usr/
 }
 
 package() {
@@ -36,7 +36,16 @@ package() {
 
   # Install metadata.desktop if exists or generate
   install -Dm644 $srcdir/usr/share/sddm/themes/${pkgname}/metadata.desktop $pkgdir/usr/share/sddm/themes/${pkgname}/metadata.desktop
+  if [ -f /etc/sddm.conf ]; then
+    echo "Backing up /etc/sddm.conf to /etc/sddm.conf.pac..."
+    sudo mv /etc/sddm.conf{,.pac}
+  fi
+
+  sudo tee /etc/sddm.conf > /dev/null <<EOF
+[General]
+DisplayServer=wayland
+GreeterEnvironment=QT_WAYLAND_SHELL_INTEGRATION=layer-shell
+[Theme]
+Current=sddm-astronaut-theme
+EOF
 }
-
-# Optional .install script to set theme and virtual keyboard
-
