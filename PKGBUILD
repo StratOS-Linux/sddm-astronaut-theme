@@ -6,8 +6,9 @@ pkgdesc="SDDM astronaut themes for StratOS â€“ multiple variants included, Qt6â€
 arch=('any')
 url="https://github.com/keyitdev/sddm-astronaut-theme"
 license=('GPL')
-depends=('sddm>=0.21.0' 'qt6-5compat' 'qt6-declarative' 'qt6-svg' 'qt6-virtualkeyboard' 'qt6-multimedia-ffmpeg'
-  # 'stratos-fonts'
+depends=(
+  'sddm>=0.21.0' 'qt6-5compat' 'qt6-declarative' 'qt6-svg' 'qt6-virtualkeyboard' 'qt6-multimedia-ffmpeg'
+  'stratos-fonts'
 )
 makedepends=('git')
 provides=('sddm-astronaut-theme' 'stratos-sddm')
@@ -30,9 +31,9 @@ package() {
   install -dm755 $pkgdir/usr/share/sddm/themes/${pkgname}
   cp -ra $srcdir/usr/share/sddm/themes/${pkgname} $pkgdir/usr/share/sddm/themes/
 
-  # Install fonts
-  install -dm755 $pkgdir/usr/share/fonts/
-  cp -a "$srcdir/usr/share/sddm/themes/${pkgname}/Fonts/"* $pkgdir/usr/share/fonts/
+  # Install fonts - now provided by the `stratos-fonts' package
+  # install -dm755 $pkgdir/usr/share/fonts/
+  # cp -a "$srcdir/usr/share/sddm/themes/${pkgname}/Fonts/"* $pkgdir/usr/share/fonts/
 
   # Install metadata.desktop if exists or generate
   install -Dm644 $srcdir/usr/share/sddm/themes/${pkgname}/metadata.desktop $pkgdir/usr/share/sddm/themes/${pkgname}/metadata.desktop
