@@ -40,9 +40,10 @@
           };
 
           # Install theme + fonts globally
+          fonts.packages = [ stratos-fonts.packages.${system}.default ];
           environment.systemPackages = [
             self.packages.${system}.default
-            stratos-fonts.packages.${system}.default
+            stratos-fonts.packages.${system}.default # this probably isn't necessary
             pkgs.kdePackages.qtmultimedia
           ];
 
