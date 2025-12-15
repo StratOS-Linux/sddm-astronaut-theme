@@ -45,7 +45,7 @@
 
           services.displayManager.sddm = {
             enable = lib.mkForce true;
-            # wayland.enable = lib.mkForce false;
+            wayland.enable = lib.mkForce true;
 
             theme = "sddm-astronaut-theme"; # the theme is available in $out/share/sddm/themes
           };
