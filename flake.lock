@@ -43,11 +43,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1765796805,
-        "narHash": "sha256-bLtNSoeuoWHwNMNEFRVk61gB9FTEsgcPiECWUNdszbQ=",
+        "lastModified": 1765798607,
+        "narHash": "sha256-NGNxUiI8wNkRZDscKa5gXmqQGwhTYsM3uKGU7IKA01o=",
         "owner": "stratos-linux",
         "repo": "stratos-fonts",
-        "rev": "573380eeb6e4679e3515b46c1c661ba27f9c80aa",
+        "rev": "6fe33653855c2d8072b5f7eed0ddab678b5864c8",
         "type": "github"
       },
       "original": {
