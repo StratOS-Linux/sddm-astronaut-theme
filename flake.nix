@@ -38,16 +38,16 @@
         ];
 
         config = {
-          fonts.fontconfig.enable = true;
+          fonts = {
+            fontconfig.enable = true;
+            fontDir.enable = true;
+          };
 
           services.displayManager.sddm = {
             enable = lib.mkDefault true;
             wayland.enable = lib.mkDefault false;
 
-            theme = "sddm-astronaut-theme";
-            themePackages = [
-              self.packages.${pkgs.system}.default
-            ];
+            theme = "sddm-astronaut-theme"; # the theme is available in $out/share/sddm/themes
           };
 
           environment.systemPackages = [
