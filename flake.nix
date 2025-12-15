@@ -51,6 +51,7 @@
           };
 
           environment.systemPackages = [
+            self.packages.${pkgs.system}.default
             pkgs.kdePackages.qtmultimedia
           ];
         };
