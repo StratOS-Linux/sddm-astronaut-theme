@@ -1,7 +1,7 @@
 # Maintainer: @zstg <zestig@duck.com>
 pkgname=sddm-astronaut-theme
-pkgver=1.0+git$(date +%Y%m%d)
-pkgrel=1
+pkgver=1.0
+pkgrel=2
 pkgdesc="SDDM astronaut themes for StratOS – multiple variants included, Qt6‑based with animated wallpapers & virtual keyboard support"
 arch=('any')
 url="https://github.com/keyitdev/sddm-astronaut-theme"
